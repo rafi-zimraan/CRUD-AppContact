@@ -1,10 +1,10 @@
+// MENGUNAKAN API OFFLINE
 import {
   StyleSheet,
   Text,
   View,
   TextInput,
   TouchableOpacity,
-  Button,
   StatusBar,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
@@ -89,9 +89,15 @@ const HomeTopTab = () => {
             setEditMode(true);
           }}>
           <View style={styles.ContentTxtInput}>
-            <Text style={styles.txtVal}>
-              {index}.{value.item}
-            </Text>
+            <TouchableOpacity>
+              <Icon
+                name="account-circle-outline"
+                size={66}
+                color={Hitam}
+                style={styles.Img}
+              />
+            </TouchableOpacity>
+            <Text style={styles.txtVal}>{value.item}</Text>
             <TouchableOpacity>
               <Icon
                 name="delete-empty-outline"
@@ -109,7 +115,7 @@ const HomeTopTab = () => {
       ))}
       <View style={styles.ContentNavbar}>
         <View style={styles.ContentNav}>
-          <Text style={styles.txt}>Hasil Input</Text>
+          <Text style={styles.txt}>masukan contact</Text>
         </View>
         <TextInput
           onChangeText={t => setText(t)}
@@ -140,21 +146,24 @@ const styles = StyleSheet.create({
   Container: {
     flex: 1,
     justifyContent: 'flex-end',
-    backgroundColor: '#90f1ef',
+    backgroundColor: Putih,
   },
   txtVal: {
     fontFamily: 'Poppins-BoldItalic',
     fontSize: 15,
     color: Hitam,
-    left: 13,
-    top: 15,
+    left: 73,
+    top: -12,
+  },
+  Img: {
+    top: 32,
   },
   ContentTxtInput: {
     justifyContent: 'center',
-    backgroundColor: Merah,
-    marginVertical: 10,
+    backgroundColor: '#e0dbdb',
+    marginVertical: 23,
     marginHorizontal: 20,
-    borderRadius: 9,
+    borderRadius: 3,
     elevation: 6,
     bottom: 10,
     padding: 2,
@@ -163,7 +172,7 @@ const styles = StyleSheet.create({
   Icon: {
     backgroundColor: Putih,
     left: 350,
-    bottom: 13,
+    bottom: 40,
     width: 30,
     height: 30,
     borderRadius: 15,
@@ -175,7 +184,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 10,
-    width: 130,
+    width: 159,
     height: 30,
     top: -640,
   },
