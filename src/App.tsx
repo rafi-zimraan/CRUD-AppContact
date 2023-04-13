@@ -1,8 +1,8 @@
 import React from 'react';
 import Splash from './screen/Splash';
 import Home from './screen/Home';
-import HomeTopTab from './components/HomeTopTab';
-import SettingTopTab from './components/SettingTopTab';
+import HomeTopTab from './components/User';
+import SettingTopTab from './components/VoicEmail';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -16,7 +16,7 @@ export type RootStackParams = {
 const Stack = createNativeStackNavigator<RootStackParams>();
 
 const App = () => {
-  return <CrudOffline />;
+  // return <CrudOffline />;
   return (
     <NavigationContainer>
       <Stack.Navigator>

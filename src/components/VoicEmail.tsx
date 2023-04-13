@@ -1,26 +1,32 @@
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {StyleSheet, Text, View, Button, StatusBar} from 'react-native';
 import {RootStackParams} from '../App';
+import {Hitam, Putih} from '../utils/Colors';
 
-const SettingTopTab = () => {
+const VoicEmail = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
   return (
     <View style={styles.Container}>
-      <Text>SettingTopTab</Text>
-      <Button title="Back ro splash" />
+      <StatusBar barStyle={'dark-content'} backgroundColor={Hitam} />
+      <Text style={styles.Txt}> VoicEmail</Text>
+      <Button title="Hai Email.id" />
     </View>
   );
 };
 
-export default SettingTopTab;
+export default VoicEmail;
 
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: Hitam,
+  },
+  Txt: {
+    color: Putih,
   },
 });

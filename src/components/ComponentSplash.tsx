@@ -34,7 +34,7 @@ export default function ComponentSplash() {
 const styles = StyleSheet.create({
   Conatiner: {
     flex: 1,
-    backgroundColor: Putih,
+    backgroundColor: Hitam,
   },
   Image: {
     position: 'absolute',
