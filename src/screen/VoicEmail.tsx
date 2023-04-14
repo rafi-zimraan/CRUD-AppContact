@@ -1,16 +1,16 @@
+import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React from 'react';
 import {StyleSheet, Text, View, Button, StatusBar} from 'react-native';
 import {RootStackParams} from '../App';
-import {Hitam, Putih} from '../utils/Colors';
+import {Black, White} from '../utils/Colors';
 
 const VoicEmail = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
   return (
     <View style={styles.Container}>
-      <StatusBar barStyle={'dark-content'} backgroundColor={Hitam} />
+      <StatusBar barStyle={'dark-content'} backgroundColor={Black} />
       <Text style={styles.Txt}> VoicEmail</Text>
       <Button title="Hai Email.id" />
     </View>
@@ -24,9 +24,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Hitam,
+    backgroundColor: Black,
   },
   Txt: {
-    color: Putih,
+    color: White,
   },
 });

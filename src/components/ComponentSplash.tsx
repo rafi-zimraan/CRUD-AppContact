@@ -1,9 +1,9 @@
+import React, {useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React, {useEffect, useState} from 'react';
 import {Image, StatusBar, StyleSheet, Text, View} from 'react-native';
 import {RootStackParams} from '../App';
-import {Hitam, Putih} from '../utils/Colors';
+import {Black} from '../utils/Colors';
 
 export default function ComponentSplash() {
   const navigation =
@@ -34,7 +34,7 @@ export default function ComponentSplash() {
 const styles = StyleSheet.create({
   Conatiner: {
     flex: 1,
-    backgroundColor: Hitam,
+    backgroundColor: Black,
   },
   Image: {
     position: 'absolute',

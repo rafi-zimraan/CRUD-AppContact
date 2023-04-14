@@ -1,0 +1,3 @@
+interface Data {
+  item: string;
+}

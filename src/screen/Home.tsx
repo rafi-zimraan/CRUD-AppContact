@@ -1,14 +1,14 @@
 import {StyleSheet} from 'react-native';
 import React from 'react';
-import {Hitam, Putih} from '../utils/Colors';
+import {White} from '../utils/Colors';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Contact from '../components/Contact';
-import User from '../components/User';
-import VoicEmail from '../components/VoicEmail';
-import Favorites from '../components/Favorites';
+import Contact from './Contact';
+import User from './User';
+import VoicEmail from './VoicEmail';
+import Favorites from './Favorites';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Keypad from '../components/Keypad';
+import Keypad from './Keypad';
 
 function UserScreen() {
   return <User />;
@@ -60,7 +60,7 @@ const Home = () => {
             } else if (route.name === 'Keypad') {
               iconImage = focused ? 'dialpad' : 'dialpad';
               size = focused ? size + 12 : size + 5;
-              color = focused ? '#FFFF' : 'gray';
+              color = focused ? '#6C70EB' : 'gray';
             }
             return <Icon name={iconImage} size={size} color={color} />;
           },
@@ -100,7 +100,7 @@ export default Home;
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
-    backgroundColor: Putih,
+    backgroundColor: White,
   },
   Content: {
     flexDirection: 'row',

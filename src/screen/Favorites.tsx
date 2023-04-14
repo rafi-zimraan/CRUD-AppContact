@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, Text, View, Button, StatusBar} from 'react-native';
-import {Hitam, Putih} from '../utils/Colors';
+import {Black, White} from '../utils/Colors';
 
 const Favorites = () => {
   return (
     <View style={styles.Container}>
-      <StatusBar barStyle={'dark-content'} backgroundColor={Hitam} />
+      <StatusBar barStyle={'dark-content'} backgroundColor={Black} />
       <Text style={styles.Txt}>Favorites</Text>
       <Button title="Love" />
     </View>
@@ -19,9 +19,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Hitam,
+    backgroundColor: Black,
   },
   Txt: {
-    color: Putih,
+    color: White,
   },
 });

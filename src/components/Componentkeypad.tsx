@@ -1,41 +1,34 @@
-// CRUD OFFLINE
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useEffect, useState} from 'react';
 import {
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
   StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  TextInput,
 } from 'react-native';
-import {AbuAbu, AbuTua, Hitam} from '../utils/Colors';
+import {AbuTua, Black, Blue, Green, White} from '../utils/Colors';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-interface Data {
-  item: string;
-}
-
-const Crud = () => {
+const Componentkeypad = () => {
   const [text, setText] = useState<string>('');
   const [data, setData] = useState<Data[]>([]);
   const [index, setIndex] = useState<number>(0);
-  const [editMode, setEditMode] = useState<boolean>(false);
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const [edit, setEdit] = useState<boolean>(false);
 
   const create = (text: string) => {
     const newData = [...data, {item: text}];
     setData(newData);
-    console.log('item: ', newData);
+    console.log('item', newData);
     saveData(newData);
   };
 
   const saveData = async (data: Data[]) => {
     try {
       await AsyncStorage.setItem('key', JSON.stringify(data));
-    } catch (error) {
-      console.log('saveData error', error);
+    } catch (eror) {
+      console.log('saveData eror', eror);
     }
   };
 
@@ -43,80 +36,94 @@ const Crud = () => {
     try {
       const value = await AsyncStorage.getItem('key');
       if (value !== null) {
-        const parsedValue = JSON.parse(value);
-        setData(parsedValue);
-        console.log(parsedValue);
+        const parseValue = JSON.parse(value);
+        setData(parseValue);
+        console.log(parseValue);
       } else {
         null;
       }
-    } catch (error) {
-      console.log('getData error', error);
+    } catch (eror) {
+      console.log('getData eror', eror);
     }
   };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const editData = () => {
     const newData2 = [...data];
     newData2[index].item = text;
-
     setData(newData2);
     setText('');
-    setEditMode(false);
-
+    setEdit(false);
     saveData(newData2);
   };
 
   const deleteData = () => {
     const newData3 = [...data];
     newData3.splice(index, 1);
-
     setData(newData3);
-    setEditMode(false);
+    setEdit(false);
     saveData(newData3);
   };
-
   return (
-    <View style={{flex: 1, backgroundColor: Hitam}}>
+    <View style={styles.Container}>
       <View style={styles.header}>
-        <Text style={styles.text}>Catatan</Text>
+        <Text style={styles.text}>Contact</Text>
       </View>
-      {data.map((item, index) => (
+      {data.map((Value, index) => (
         <TouchableOpacity
           onPress={() => {
-            setText(item.item);
+            setText(Value.item);
             setIndex(index);
-            setEditMode(true);
+            setEdit(true);
           }}
           key={index}
           style={styles.content}>
-          <Text style={styles.txt2}>
-            {index}. {item.item}
-          </Text>
+          <Image
+            source={require('../assets/image/user.png')}
+            style={styles.Image}
+          />
+          <Text style={styles.txt2}>{Value.item}</Text>
           <TouchableOpacity
+            style={styles.dbtn}
             onPress={() => {
               setIndex(index);
               deleteData();
-            }}
-            style={styles.dbtn}>
-            <Text style={styles.dtxt}>X</Text>
+            }}>
+            <View style={styles.Icon}>
+              <Icon name="trash-can-outline" size={26} color={White} />
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Icon
+              name="phone-incoming-outline"
+              size={26}
+              color={White}
+              style={styles.Icon2}
+            />
           </TouchableOpacity>
         </TouchableOpacity>
       ))}
       <View style={styles.contain}>
         <TextInput
           style={styles.textInput}
-          placeholder="Masukan Data"
+          placeholder="62+"
+          returnKeyLabel="Enter"
+          keyboardType="phone-pad"
           value={text}
           onChangeText={setText}
         />
-        {editMode ? (
+        {edit ? (
           <TouchableOpacity
-            onPress={() => (editMode ? editData() : create(text))}
+            onPress={() => (edit ? editData() : create(text))}
             style={styles.buttonEdit}>
             <Text style={styles.txt}>Edit</Text>
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
-            onPress={() => (editMode ? editData() : create(text))}
+            onPress={() => (edit ? editData() : create(text))}
             style={styles.button}>
             <Text style={styles.txt}>Input</Text>
           </TouchableOpacity>
@@ -126,11 +133,14 @@ const Crud = () => {
   );
 };
 
-export default Crud;
+export default Componentkeypad;
 
 const styles = StyleSheet.create({
+  Container: {
+    flex: 1,
+    backgroundColor: Black,
+  },
   header: {
-    backgroundColor: 'red',
     width: '90%',
     alignSelf: 'center',
     borderBottomWidth: 1,
@@ -139,19 +149,19 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    color: 'black',
+    color: White,
     alignSelf: 'center',
     marginVertical: 10,
   },
   contain: {
-    width: '100%',
     position: 'absolute',
-    bottom: 0,
     flexDirection: 'row',
+    bottom: 0,
+    width: '100%',
   },
   textInput: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: White,
     borderBottomWidth: 1,
     borderLeftWidth: 1,
     borderTopLeftRadius: 10,
@@ -163,49 +173,56 @@ const styles = StyleSheet.create({
     bottom: 10,
   },
   button: {
-    width: '20%',
-    backgroundColor: 'blue',
+    backgroundColor: Blue,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
     bottom: 10,
+    width: '20%',
   },
   buttonEdit: {
     width: '20%',
-    backgroundColor: 'green',
+    bottom: 11,
+    backgroundColor: Green,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
   },
   txt: {
-    color: 'white',
+    color: White,
     fontSize: 20,
+  },
+  Image: {
+    height: 48,
+    width: 48,
   },
   content: {
     backgroundColor: AbuTua,
     marginVertical: 10,
-    padding: 5,
-    width: '95%',
-    alignSelf: 'center',
     borderRadius: 10,
     flexDirection: 'row',
+    alignSelf: 'center',
+    padding: 5,
+    width: '95%',
+  },
+  Icon: {
+    flexDirection: 'row',
+  },
+  Icon2: {
+    top: 10,
   },
   txt2: {
-    color: 'white',
+    flex: 1,
+    color: White,
+    marginTop: 8,
+    marginLeft: 4,
     fontSize: 18,
     paddingLeft: 5,
-    flex: 1,
   },
   dbtn: {
-    backgroundColor: 'gold',
-    width: '7%',
     marginRight: 5,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  dtxt: {
-    color: 'black',
-    fontSize: 11,
   },
 });
