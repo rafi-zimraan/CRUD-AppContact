@@ -10,6 +10,10 @@ import {
 } from 'react-native';
 import {AbuAbu, AbuTua, Black, Blue, HItamMuda, White} from '../utils/Colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const ComponenContact = () => {
   return (
@@ -65,11 +69,11 @@ const styles = StyleSheet.create({
     color: White,
   },
   Content: {
-    height: 170,
+    height: hp('170%'),
     backgroundColor: HItamMuda,
   },
   HeaderView: {
-    height: 44,
+    height: hp('4%'),
     marginLeft: 16,
     marginTop: 14,
     marginRight: 16,
@@ -85,7 +89,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   HeaderContent: {
-    height: 40,
+    height: hp('7'),
     marginTop: 12,
     marginLeft: 16,
     justifyContent: 'center',
@@ -101,7 +105,7 @@ const styles = StyleSheet.create({
   },
   SearchBox: {
     marginTop: 12,
-    height: 37,
+    height: hp('5%'),
     marginLeft: 16,
     marginRight: 16,
     borderRadius: 10,
@@ -112,8 +116,8 @@ const styles = StyleSheet.create({
   },
   Image: {
     top: 8,
-    height: 20,
-    width: 17,
+    height: hp('3%'),
+    width: wp('6%'),
     marginLeft: 7,
     marginRight: 7,
   },
@@ -124,7 +128,7 @@ const styles = StyleSheet.create({
     color: White,
   },
   ImageProfile: {
-    height: 80,
+    height: hp('10%'),
     flexDirection: 'row',
   },
   Model: {
@@ -132,8 +136,8 @@ const styles = StyleSheet.create({
     marginTop: 17,
     marginLeft: 10,
     marginBottom: 10,
-    height: 100,
-    width: 100,
+    height: hp('10%'),
+    width: wp('20%'),
   },
   ContentModel: {
     marginLeft: 16,

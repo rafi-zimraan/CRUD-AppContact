@@ -9,6 +9,10 @@ import VoicEmail from './VoicEmail';
 import Favorites from './Favorites';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Keypad from './Keypad';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 function UserScreen() {
   return <User />;
@@ -35,7 +39,7 @@ const Home = () => {
         initialRouteName="Contact"
         screenOptions={({route}) => ({
           tabBarActiveTintColor: '#0A84FF',
-          tabBarStyle: {backgroundColor: '#161616', height: 70},
+          tabBarStyle: {backgroundColor: '#161616', height: hp('8%')},
 
           tabBarIcon: ({focused, size, color}) => {
             let iconImage: any;

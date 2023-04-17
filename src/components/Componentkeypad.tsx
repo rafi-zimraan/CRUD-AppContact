@@ -10,6 +10,10 @@ import {
 import {AbuTua, Black, Blue, Green, White} from '../utils/Colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const Componentkeypad = () => {
   const [text, setText] = useState<string>('');
@@ -106,10 +110,10 @@ const Componentkeypad = () => {
           </TouchableOpacity>
         </TouchableOpacity>
       ))}
-      <View style={styles.contain}>
+      <View style={styles.ContentButton}>
         <TextInput
           style={styles.textInput}
-          placeholder="62+"
+          placeholder="+62"
           returnKeyLabel="Enter"
           keyboardType="phone-pad"
           value={text}
@@ -141,7 +145,7 @@ const styles = StyleSheet.create({
     backgroundColor: Black,
   },
   header: {
-    width: '90%',
+    width: wp('90%'),
     alignSelf: 'center',
     borderBottomWidth: 1,
     borderBottomLeftRadius: 10,
@@ -153,11 +157,11 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginVertical: 10,
   },
-  contain: {
+  ContentButton: {
     position: 'absolute',
     flexDirection: 'row',
     bottom: 0,
-    width: '100%',
+    width: wp('100%'),
   },
   textInput: {
     flex: 1,
@@ -178,10 +182,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     bottom: 10,
-    width: '20%',
+    width: wp('20%'),
   },
   buttonEdit: {
-    width: '20%',
+    width: wp('20%'),
     bottom: 11,
     backgroundColor: Green,
     justifyContent: 'center',
@@ -193,8 +197,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   Image: {
-    height: 48,
-    width: 48,
+    height: hp('7%'),
+    width: wp('13%'),
   },
   content: {
     backgroundColor: AbuTua,
@@ -203,19 +207,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
     padding: 5,
-    width: '95%',
+    width: wp('95%'),
   },
   Icon: {
     flexDirection: 'row',
   },
   Icon2: {
-    top: 10,
+    top: 15,
   },
   txt2: {
     flex: 1,
     color: White,
-    marginTop: 8,
-    marginLeft: 4,
+    marginTop: 14,
+    marginLeft: 9,
     fontSize: 18,
     paddingLeft: 5,
   },

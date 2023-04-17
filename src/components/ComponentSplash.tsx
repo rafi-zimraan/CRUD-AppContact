@@ -4,6 +4,10 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Image, StatusBar, StyleSheet, Text, View} from 'react-native';
 import {RootStackParams} from '../App';
 import {Black} from '../utils/Colors';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 export default function ComponentSplash() {
   const navigation =
@@ -40,7 +44,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     marginVertical: 325,
     marginHorizontal: 150,
-    height: 130,
-    width: 130,
+    height: hp('20%'),
+    width: wp('36%'),
   },
 });
