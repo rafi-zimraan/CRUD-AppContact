@@ -10,7 +10,7 @@ const User = () => {
   return (
     <View style={styles.Container}>
       <View style={styles.Content}>
-        <StatusBar barStyle={'dark-content'} backgroundColor={Black} />
+        <StatusBar barStyle={'light-content'} backgroundColor={Black} />
         <Text style={styles.Txt}>USER</Text>
         <Button title="Just play on" />
       </View>

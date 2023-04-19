@@ -142,6 +142,7 @@ export default Componentkeypad;
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
+    top: 8,
     backgroundColor: Black,
   },
   header: {
@@ -174,14 +175,14 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 10,
     marginHorizontal: 10,
     paddingLeft: 10,
-    bottom: 10,
+    bottom: 13,
   },
   button: {
     backgroundColor: Blue,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
-    bottom: 10,
+    bottom: 13,
     width: wp('20%'),
   },
   buttonEdit: {
@@ -190,7 +191,7 @@ const styles = StyleSheet.create({
     backgroundColor: Green,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
+    borderRadius: 13,
   },
   txt: {
     color: White,

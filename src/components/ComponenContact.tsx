@@ -11,14 +11,19 @@ import {
 import {AbuAbu, AbuTua, Black, Blue, HItamMuda, White} from '../utils/Colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+  responsiveFontSize,
+  responsiveHeight,
+  responsiveWidth,
+} from 'react-native-responsive-dimensions';
 
 const ComponenContact = () => {
   return (
     <View style={styles.Container}>
-      <StatusBar barStyle={'dark-content'} backgroundColor={Black} />
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor={Black}
+        translucent
+      />
       <View style={styles.Content}>
         <View style={styles.HeaderView}>
           <Text style={styles.TxtHeader}>Groups</Text>
@@ -63,17 +68,18 @@ export default ComponenContact;
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
+    marginVertical: 13,
     backgroundColor: Black,
   },
   Txt: {
     color: White,
   },
   Content: {
-    height: hp('170%'),
+    height: responsiveHeight(100),
     backgroundColor: HItamMuda,
   },
   HeaderView: {
-    height: hp('4%'),
+    height: responsiveHeight(6),
     marginLeft: 16,
     marginTop: 14,
     marginRight: 16,
@@ -89,8 +95,8 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   HeaderContent: {
-    height: hp('7'),
-    marginTop: 12,
+    height: responsiveHeight(6),
+    marginTop: 10,
     marginLeft: 16,
     justifyContent: 'center',
     alignItems: 'flex-start',
@@ -105,7 +111,7 @@ const styles = StyleSheet.create({
   },
   SearchBox: {
     marginTop: 12,
-    height: hp('5%'),
+    height: responsiveHeight(5.1),
     marginLeft: 16,
     marginRight: 16,
     borderRadius: 10,
@@ -116,8 +122,8 @@ const styles = StyleSheet.create({
   },
   Image: {
     top: 8,
-    height: hp('3%'),
-    width: wp('6%'),
+    height: responsiveHeight(3),
+    width: responsiveWidth(6),
     marginLeft: 7,
     marginRight: 7,
   },
@@ -128,7 +134,7 @@ const styles = StyleSheet.create({
     color: White,
   },
   ImageProfile: {
-    height: hp('10%'),
+    height: responsiveFontSize(10),
     flexDirection: 'row',
   },
   Model: {
@@ -136,8 +142,8 @@ const styles = StyleSheet.create({
     marginTop: 17,
     marginLeft: 10,
     marginBottom: 10,
-    height: hp('10%'),
-    width: wp('20%'),
+    height: responsiveHeight(11),
+    width: responsiveWidth(19),
   },
   ContentModel: {
     marginLeft: 16,
@@ -149,13 +155,13 @@ const styles = StyleSheet.create({
     color: White,
     fontFamily: 'Poppins-Medium',
     letterSpacing: 0.38,
-    fontSize: 20,
+    fontSize: responsiveFontSize(2),
   },
   txtModel2: {
     color: AbuAbu,
     fontFamily: 'Poppins-Medium',
     letterSpacing: 0.38,
     lineHeight: 18,
-    fontSize: 14,
+    fontSize: responsiveFontSize(2),
   },
 });

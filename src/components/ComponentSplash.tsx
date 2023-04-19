@@ -5,9 +5,9 @@ import {Image, StatusBar, StyleSheet, Text, View} from 'react-native';
 import {RootStackParams} from '../App';
 import {Black} from '../utils/Colors';
 import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+  responsiveHeight,
+  responsiveWidth,
+} from 'react-native-responsive-dimensions';
 
 export default function ComponentSplash() {
   const navigation =
@@ -24,13 +24,15 @@ export default function ComponentSplash() {
     <View style={styles.Conatiner}>
       <StatusBar
         barStyle={'light-content'}
-        backgroundColor={'transparent'}
+        backgroundColor={Black}
         translucent
       />
-      <Image
-        source={require('../assets/image/iconsContact.png')}
-        style={styles.Image}
-      />
+      <View style={styles.Content}>
+        <Image
+          source={require('../assets/image/iconsContact.png')}
+          style={styles.Image}
+        />
+      </View>
     </View>
   );
 }
@@ -39,12 +41,17 @@ const styles = StyleSheet.create({
   Conatiner: {
     flex: 1,
     backgroundColor: Black,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  Content: {
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   Image: {
-    position: 'absolute',
-    marginVertical: 325,
-    marginHorizontal: 150,
-    height: hp('20%'),
-    width: wp('36%'),
+    height: responsiveHeight(20),
+    width: responsiveWidth(25),
+    resizeMode: 'contain',
   },
 });
