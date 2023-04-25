@@ -146,22 +146,21 @@ const styles = StyleSheet.create({
     width: responsiveWidth(19),
   },
   ContentModel: {
+    top: 17,
     marginLeft: 16,
     alignItems: 'flex-start',
     justifyContent: 'center',
-    top: 20,
+    fontSize: responsiveFontSize(2),
   },
   txtModel: {
     color: White,
     fontFamily: 'Poppins-Medium',
     letterSpacing: 0.38,
-    fontSize: responsiveFontSize(2),
   },
   txtModel2: {
     color: AbuAbu,
     fontFamily: 'Poppins-Medium',
     letterSpacing: 0.38,
     lineHeight: 18,
-    fontSize: responsiveFontSize(2),
   },
 });

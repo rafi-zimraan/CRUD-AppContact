@@ -45,13 +45,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   Content: {
-    position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
   },
   Image: {
-    height: responsiveHeight(20),
-    width: responsiveWidth(25),
     resizeMode: 'contain',
+    height: responsiveHeight(21),
+    width: responsiveWidth(21),
   },
 });
